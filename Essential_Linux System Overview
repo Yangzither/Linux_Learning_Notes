@@ -5,3 +5,9 @@
 * The definition and usage of a shell
 The CLI environment is provided by an application on the computer known as a terminal.
 The terminal accepts what the user types and passes to a shell. The shell interprets what the user has typed into instructions that can be executed by the operating system.
+
+* Linux From Scrath
+Linux From Scratch (LFS) is more of a learning tool than a working distribution. 
+This project consists of an online book, and source code, with “step-by-step instructions” for building a custom Linux distribution from the source code up. 
+This “distribution” embodies the true spirit of Linux whereby users can modify any aspect of the operating system and learn how all the pieces work together. 
+It’s also a good starting point for anyone who needs specialized functionality or an ultra-compact build for an embedded system project.
