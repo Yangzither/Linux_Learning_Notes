@@ -12,6 +12,12 @@ This project consists of an online book, and source code, with “step-by-step i
 This “distribution” embodies the true spirit of Linux whereby users can modify any aspect of the operating system and learn how all the pieces work together. 
 It’s also a good starting point for anyone who needs specialized functionality or an ultra-compact build for an embedded system project.
 
-* Wordpress is a webserver can be used to develop dynamic content
+* Wordpress is can be used to develop dynamic webpage content
+
+* Two most pupular web servers
 Apache is another dominate webserver 
 NGINX is another popular one
+
+*Popular private cloud service
+ownCloud
+nextCloud
