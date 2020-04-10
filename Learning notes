@@ -1,2 +1,7 @@
-Linux = Linux kernal + GNU
-GNU = free software that provides open sorce equivalents of many common UNIX commands
+*Linux = Linux kernal + GNU
+
+*GNU = free software that provides open sorce equivalents of many common UNIX commands
+
+* The definition and usage of a shell
+The CLI environment is provided by an application on the computer known as a terminal.
+The terminal accepts what the user types and passes to a shell. The shell interprets what the user has typed into instructions that can be executed by the operating system.
