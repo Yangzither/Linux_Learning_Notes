@@ -80,6 +80,8 @@ echo is a shell builtin
 echo is /bin/echo
  
  //Alias 
+ type -a ll
+ use type command to identify all alias and locations 
  
  
  
