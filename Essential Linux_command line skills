@@ -86,3 +86,29 @@ echo is /bin/echo
  //Functions
  Functions can also be built using existing commands to either create new commands, or to override commands built-in to the shell or commands stored in files. Aliases and functions are normally loaded from the initialization files when the shell first starts.
  
+==========
+Quoating
+//Double Quotes - Double quotes stop the shell from interpreting some metacharacters (special characters), including glob characters.
+echo "The glob characters are *, ? and [ ]" 
+
+//Single Quotes - Single quotes prevent the shell from doing any interpreting of special characters, including globs, variables, command substitution and other metacharacters that have not been discussed yet.
+
+//Backslash character \  >> There is also an alternative technique to essentially single quote a single character.
+sysadmin@localhost:~$ echo The service costs \$1 and the path is $PATH
+The service costs $1 and the path is /usr/bin/custom:/home/sysadmin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+
+Backqotes
+Backquotes, or backticks, are used to specify a command within a command, a process called command substitution. 
+This allows for powerful and sophisticated use of commands.
+echo today is `date`
+Today is Mon Nov 4 03:40:05 UTC 2018
+
+
+
+
+
+
+
+
+
+
