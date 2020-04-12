@@ -90,8 +90,19 @@ echo is /bin/echo
 Quoating
 //Double Quotes - Double quotes stop the shell from interpreting some metacharacters (special characters), including glob characters.
 echo "The glob characters are *, ? and [ ]" 
+Double quote characters don't have any effect on backquote characters. The shell will still use them as command substitution. Execute the following to see a demonstration:
+
+echo This is the command "`date`"
+Your output should be similar to the following:
+
+sysadmin@localhost:~$ echo This is the command "`date`"               
+This is the command Mon Dec  3 21:37:33 UTC 2018
+
 
 //Single Quotes - Single quotes prevent the shell from doing any interpreting of special characters, including globs, variables, command substitution and other metacharacters that have not been discussed yet.
+Single quote removes the function of back qotes in below example
+echo This is the command '`date`'
+Ths is the command `date`
 
 //Backslash character \  >> There is also an alternative technique to essentially single quote a single character.
 sysadmin@localhost:~$ echo The service costs \$1 and the path is $PATH
