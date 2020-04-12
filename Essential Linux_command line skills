@@ -79,7 +79,7 @@ sysadmin@localhost:~$ type -a echo
 echo is a shell builtin                                                
 echo is /bin/echo
  
- //Alias 
+ //Alias: alias come from two places:initialization files and created in shell. When shell is closed, alias created within this shell will be lost 
  type -a ll
  use type command to identify all alias and locations 
  
