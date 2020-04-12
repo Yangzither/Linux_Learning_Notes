@@ -24,13 +24,13 @@ Each option and argument is normally separated by a space, although options can 
  
  
  * Variables
- Local variable:  When the user closes a terminal window or shell, all of the variables are lost. 
+ //Local variable:  When the user closes a terminal window or shell, all of the variables are lost. 
  They are often associated with user-based tasks and are lowercase by convention.
  
  variable='something'
  echo $variable
  
- Environment variables:
+ //Environment variables:
  Environment variables, also called global variables, are available system-wide, in all shells used by Bash when interpreting commands and performing tasks. 
  The system automatically recreates environment variables when a new shell is opened. 
  Examples include the PATH, HOME, and HISTSIZE variables. 
@@ -47,11 +47,17 @@ Each option and argument is normally separated by a space, although options can 
  *How to remove an exported variable
  unset variable2
  
+
+ //Path variable 
+ One of the most important Bash shell variables to understand is the PATH variable. 
+ It contains a list that defines which directories the shell looks in to find commands. 
+ If a valid command is entered and the shell returns a "command not found" error, it is because the Bash shell was unable to locate a command by that name in any of the directories included in the path. 
+ The following command displays the path of the current shell:
  
- 
- 
- 
- 
+ How to update the value of PATH
+sysadmin@localhost:~$ PATH=/usr/bin/custom:$PATH                        
+sysadmin@localhost:~$ echo $PATH                                       
+/usr/bin/custom:/home/sysadmin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games   
  
  
  
