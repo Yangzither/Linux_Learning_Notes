@@ -6,3 +6,59 @@ localhost is the system name
 ~ indicate this is the home directory
 
 *Linux is case-sensitive. Commands, options, arguments, variables, and file names must be entered exactly as shown.
+
+*The typical format for a command is as follows:
+command [options] [arguments]
+Options are used to modify the core behavior of a command while arguments are used to provide additional information (such as a filename or a username). 
+Each option and argument is normally separated by a space, although options can often be combined.
+
+*ls -lr
+  ls -l -r
+  ls -rl
+  
+ *history
+ !3 >> No 3 command from history list
+ !-3
+ !! >> most recent command
+ !ls >> the last iteratino of this command
+ 
+ 
+ * Variables
+ Local variable:  When the user closes a terminal window or shell, all of the variables are lost. 
+ They are often associated with user-based tasks and are lowercase by convention.
+ 
+ variable='something'
+ echo $variable
+ 
+ Environment variables:
+ Environment variables, also called global variables, are available system-wide, in all shells used by Bash when interpreting commands and performing tasks. 
+ The system automatically recreates environment variables when a new shell is opened. 
+ Examples include the PATH, HOME, and HISTSIZE variables. 
+ 
+ Command:
+ env >> show environment variables
+ 
+ *How to make a local variable an environment variable:
+ export variable1
+ 
+ or create a variable environment upon its creation 
+ export variable2="something else"
+ 
+ *How to remove an exported variable
+ unset variable2
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
