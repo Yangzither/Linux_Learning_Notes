@@ -123,6 +123,15 @@ With the double pipe, if the first command runs successfully, the second command
 "Either run this first command or the second one”.
 
 
+==========
+whoami: display username of current user
+uname: display name of kernal 
+uname -n: display network node hostname 
+pwd: print current working directory 
+history, history 5, !5 !-5
+
+
+
 
 
 
