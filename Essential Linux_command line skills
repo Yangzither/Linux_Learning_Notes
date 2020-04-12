@@ -22,8 +22,8 @@ Each option and argument is normally separated by a space, although options can 
  !! >> most recent command
  !ls >> the last iteratino of this command
  
- 
- * Variables
+ ==========
+ Variables
  //Local variable:  When the user closes a terminal window or shell, all of the variables are lost. 
  They are often associated with user-based tasks and are lowercase by convention.
  
@@ -59,11 +59,27 @@ sysadmin@localhost:~$ PATH=/usr/bin/custom:$PATH
 sysadmin@localhost:~$ echo $PATH                                       
 /usr/bin/custom:/home/sysadmin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games   
  
+ ==========
+ *Command types
+ type command
+ //internal commands:  built into shell intself, shell knows how to interprete it. 
+ type cd
  
+ //Exterenal command:
+External commands are stored in files that are searched by the shell. If a user types the ls command, 
+then the shell searches through the directories that are listed in the PATH variable to try to find a file named ls that it can execute
  
+ which ls
+ which cal
  
+ for external command, "type" command display the location of the command 
  
+//Using the -a option of the type command displays all locations that contain the command named:
+sysadmin@localhost:~$ type -a echo                                      
+echo is a shell builtin                                                
+echo is /bin/echo
  
+ //Alias 
  
  
  
