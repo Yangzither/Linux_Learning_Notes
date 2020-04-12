@@ -103,10 +103,24 @@ This allows for powerful and sophisticated use of commands.
 echo today is `date`
 Today is Mon Nov 4 03:40:05 UTC 2018
 
+==========
+Control statement 
+//Semicolon >> The semicolon ; character can be used to run multiple commands, one after the other. Each command runs independently and consecutively; regardless of the result of the first command, 
+the second command runs once the first has completed, then the third and so on.
 
+command1; command 2: command3
 
+//Double Ampersand 
+command1 && command2
+The double ampersand && acts as a logical "and"; if the first command is successful, then the second command will also run. 
+If the first command fails, then the second command will not run.
 
+//Double Pipe
+command1 || command2
+The double pipe || is a logical "or". Depending on the result of the first command, the second command will either run or be skipped.
 
+With the double pipe, if the first command runs successfully, the second command is skipped; if the first command fails, then the second command is run. In other words, you are essentially telling the shell, 
+"Either run this first command or the second one”.
 
 
 
