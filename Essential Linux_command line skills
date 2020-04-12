@@ -1,0 +1,8 @@
+The shell is the command line interpreter that translates commands entered by a user into actions to be performed by the operating system. 
+
+*sysadmin@localhost:~$ 
+sysadmin is the user name
+localhost is the system name
+~ indicate this is the home directory
+
+*Linux is case-sensitive. Commands, options, arguments, variables, and file names must be entered exactly as shown.
