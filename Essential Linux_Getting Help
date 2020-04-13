@@ -25,7 +25,7 @@ it will search from the current position downwards till the end of documents.
 type n key for next one, and type shift +n for last one. 
 
 //man passwd >> Search by name 
-man -f passwd >> It displays man pages that match, or partially match, a specific name and provide the section number and a brief description of each man page:
+manman 1description of each man page:
 man 1 passwd
 man 5 passwd
 * command whatis does the same thing
@@ -52,9 +52,21 @@ locate -c passwd >> count how many  files match
 locate -b passwd >> files only exclude directorys, in other words, basename only 
 locate -b "\passwd" >> files names exactly match the term 
 
+==========
+info command
 
+U for going to upper note, L for going to last note
 
+Shift + H can be used to gonig to movement commands
+L key for close the movement command page
+Q key for quite entirely 
 
+==========
+use "info" to explore Linux capabilities
+
+==========
+command --help 
+This is a quick way to learn about command 
 
 
 
