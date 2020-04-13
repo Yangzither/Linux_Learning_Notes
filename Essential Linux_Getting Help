@@ -68,6 +68,9 @@ use "info" to explore Linux capabilities
 command --help 
 This is a quick way to learn about command 
 
+==========
 
-
+/usr/share/doc
+/usr/doc 
+These two directories usually contains READ files of third party software vendors, which can be helpful for software installation. 
 
