@@ -30,7 +30,7 @@ man 1 passwd
 man 5 passwd
 * command whatis does the same thing
 
-//man -k passwd >> searches both name and descriptions of the man pages
+//man -k passwd >> searches both name and descriptions of the man pages for a keyword
 * apropos does the same thing
 
 ==========
