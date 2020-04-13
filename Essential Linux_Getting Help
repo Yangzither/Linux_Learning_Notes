@@ -24,3 +24,23 @@ How to serach anything in man,
 it will search from the current position downwards till the end of documents.
 type n key for next one, and type shift +n for last one. 
 
+//man passwd >> Search by name 
+man -f passwd >> It displays man pages that match, or partially match, a specific name and provide the section number and a brief description of each man page:
+man 1 passwd
+man 5 passwd
+* command whatis does the same thing
+
+//man -k passwd >> searches both name and descriptions of the man pages
+* apropos does the same thing
+
+==========
+Whereis 
+This command searches for commands, source files and man pages in specific locations where these files are typically stored:
+
+sysadmin@localhost:~$ whereis ls 
+ls: /bin/ls /usr/share/man/man1p/ls.1.gz /usr/share/man/man1/ls.1.gz
+
+The above shows ls command is associatd with two man pages. However, 
+
+
+
