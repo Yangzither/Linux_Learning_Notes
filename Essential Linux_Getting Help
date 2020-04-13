@@ -34,7 +34,7 @@ man 5 passwd
 * apropos does the same thing
 
 ==========
-Whereis 
+Whereis >> for searching commands and main pages 
 This command searches for commands, source files and man pages in specific locations where these files are typically stored:
 
 sysadmin@localhost:~$ whereis ls 
