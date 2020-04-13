@@ -1,1 +1,26 @@
+Sections with Man Pages
+
+==========
+man ls
+cal [-31jy] 
+[] are used to indicate that this feautre is not required to run the command. 
+
+SYNOPSIS                                                              
+       date [OPTION]... [+FORMAT]                                      
+       date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]
+       
+In this SYNOPSIS there are two syntaxes for the date command. 
+The first one is used to display the date on the system while the second is used to set the date.
+
+The ellipsis ... following [OPTION] indicates that one or more of the items before it may be used.
+
+Additionally, the [-u|--utc|--universal] notation means that either the -u option or the --utc option or the --universal option may be used. Typically this means that all three options really do the same thing, 
+but sometimes the use of the | character is used to indicate that the options can't be used in combination, like a logical “or".
+
+==========
+man man
+How to serach anything in man, 
+/foo
+it will search from the current position downwards till the end of documents.
+type n key for next one, and type shift +n for last one. 
 
