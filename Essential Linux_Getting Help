@@ -45,4 +45,17 @@ As such for the above example, /bin/ls is command, the other two in .gz are man 
 
 This is because the ls command can be used with the options/features that are described by either man page
 
+==========
+Find Any file or directory
+locate passwd
+locate -c passwd >> count how many  files match
+locate -b passwd >> files only exclude directorys, in other words, basename only 
+locate -b "\passwd" >> files names exactly match the term 
+
+
+
+
+
+
+
 
