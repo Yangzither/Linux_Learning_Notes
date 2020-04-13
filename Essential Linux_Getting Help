@@ -40,7 +40,9 @@ This command searches for commands, source files and man pages in specific locat
 sysadmin@localhost:~$ whereis ls 
 ls: /bin/ls /usr/share/man/man1p/ls.1.gz /usr/share/man/man1/ls.1.gz
 
-The above shows ls command is associatd with two man pages. However, 
+The above shows ls command is associatd with two man pages. Man pages are typically compressed with program called gzip and ends in .gz
+As such for the above example, /bin/ls is command, the other two in .gz are man pages. 
 
+This is because the ls command can be used with the options/features that are described by either man page
 
 
