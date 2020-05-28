@@ -1,1 +1,12 @@
-dfas
+****** How To Connect Centos VM to Network******
+
+cd /etc/sysconfig/network-scripts
+
+vi ifcfg-enp0s3
+Change the last line: value of reboot to yes
+(hit 'i' to enter insert mode
+hit esc to enter command mode
+type :wq to save and exit)
+
+service network restart
+*************************************************
