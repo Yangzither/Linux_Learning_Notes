@@ -10,3 +10,26 @@ type :wq to save and exit)
 
 service network restart
 *************************************************
+
+****** How to Remotly login Centos VM************
+From VM -> System -> Network -> NAT -> Port Forwarding
+Set Host IP as: 127.0.0.1 which is your local host ip address
+Set Host Port as: 2222
+Set Guest IP as 10.0.2.15, this is the ip address of your VM
+Set Guest IP as 22
+
+From your local host:
+ssh -p 2222 root@127.0.0.1
+From here your are logged into VM Centos
+
+Notes: here 2222 is the port Number on your local Host
+127.0.0.1 is your loop back ip address of your local machine
+
+root is the user name of your select username from VM
+***************************************************
+
+INSTALLATION OF ALL LATEST SOFTWWARE UPDATES
+yum update -y
+
+
+ 
