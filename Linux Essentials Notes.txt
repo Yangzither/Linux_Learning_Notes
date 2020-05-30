@@ -84,4 +84,18 @@ Commands [OPTION]...[FILE]...
 Notes: anything within []is optional, '...' means option can be repeated
 anything without [] is mandantory
 
-On man page, / back slash can be used for search text  
+On man page, / back slash can be used for search text
+H for text browsing Commands
+n for next matching item
+N for previous matching item
+
+****************************************************
+Working with Linux shell
+man bash ---> for keyboard shortcuts
+history
+!163 Enter ---> re-execute the 163th command from history
+!! ---> run the last command from history
+Ctl - C terminate program
+Ctl - Z Suspend a program
+bg ---> bring program to background
+fg ---> bring program to foreground
