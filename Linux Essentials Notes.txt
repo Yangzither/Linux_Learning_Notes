@@ -34,5 +34,54 @@ yum update -y
 ***************************************************
 
 ip addr list
-
 ***************************************************
+File Globbing
+*
+? ---> Single Character
+! ---> not
+[a-z] [0-9] [!0-8]
+.[!.]*  --->not to display any files starts with 2 dots at the front
+ls -d (notes: d option is not to show any directory contents)
+
+The shell expands the wildcard characters and feed it into commands.
+
+Remember, the wildcard character matches every filename character in any position.
+
+It's very important that there is one exception to this rule: it does not match
+filenames starting with a dot, which are called hidden files in Linux.
+
+The question mark does the same, but only in a single position;
+it also doesn't match filenames with the leading dot.
+
+The brackets match specific characters in a single position defined between the brackets.
+When having consecutive permitted characters, you can also use the dash symbol.
+To match everything except a set of characters at a specific position, use the exclamation mark in brackets.
+
+****************************************************
+Quoting commands
+The purpose is to disable shell expansions
+'' Using single quotes is the preferred way when working with shell
+" "Double quotes is the same but with exception of some environment variables such as $PATH
+\ Back slash is the same as single quotes but only affect and only affect the next single character
+
+****************************************************
+Getting help
+1. man man (Manual)
+
+man command
+man -k copy (notes: search everything that has something to do with copy)
+man 8 commands (notes: 8 is the section name)
+
+2. command --help (command help)
+
+3. info command (information page)
+
+Extra information under,
+/usr/share/doc
+
+Command format:
+Commands [OPTION]...[FILE]...
+Notes: anything within []is optional, '...' means option can be repeated
+anything without [] is mandantory
+
+On man page, / back slash can be used for search text  
