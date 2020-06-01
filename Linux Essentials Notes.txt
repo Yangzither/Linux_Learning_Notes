@@ -129,7 +129,8 @@ Regular expression are used to search a pattern in a text or string
 Regular expressions, also referred to as regex, are a collection of normal and special characters that are used to find simple or complex patterns,
 respectively, in files. These characters are characters that are used to perform a particular matching function in a search.
 
-Always put regular expression in a single quote to avoid mesh up with file gobbling.
+Always put regular expression in a ////single quote//// to avoid mesh up with file gobbling.
+
 A few examples
 grep '\*' /etc/services  notes: \ escaping to search for a special character like "*"
 grep -E 'data$' /etc/services  notes: -E is for pattern search,
@@ -140,4 +141,20 @@ note: grep is one of the few commands that supports regular expression
 grep: regular expression
 egrep or grep -E: extended expression
 
-notes: grep stands for global regular expression print 
+notes: grep stands for global regular expression print
+
+******************************************************
+Working with sed
+sed should be used with single quotes as well
+unless envorinmetal vairalbes are within sed expression, then double quotes should be Suspend
+
+Substitution mode of sed is very powerful
+syntax is: sed 's/serach_for_text/repalce_with-text/g'
+note: g is for global change
+
+option -i is for inplace change
+
+******************************************************
+Awk this is to be studied ??????????????????????????
+
+******************************************************
