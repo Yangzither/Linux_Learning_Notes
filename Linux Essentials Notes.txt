@@ -99,3 +99,25 @@ Ctl - C terminate program
 Ctl - Z Suspend a program
 bg ---> bring program to background
 fg ---> bring program to foreground
+
+****************************************************
+Standard Streams
+Standard input 0
+Standard output 1
+Stander error 2
+
+eg.
+ls /var/lib/systemd/ 1> /temp/stdout-output.txt 2>/temp/stderr-output.text
+notes: 1 is ouput to standard output files
+       2 is output to standeard error filenames
+
+You can also redirect stdinput to stderr by: 1>&2
+
+Rediret to /dev/Null is to avoid generates any output
+eg ls /dev/Null
+
+To Archive and Zip a file:
+tar -cv /home/Test | gzip > /home/my_tar_zip_file.tar.zip
+
+To append content rather then replace the original content, use:
+echo "Hello World" >> /temp/myText.txt 
