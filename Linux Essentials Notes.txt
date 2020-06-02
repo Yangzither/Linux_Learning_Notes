@@ -158,3 +158,120 @@ option -i is for inplace change
 Awk this is to be studied ??????????????????????????
 
 ******************************************************
+Install Tree Commands
+yum install Tree -y
+tree -d -L 2 / | less
+Every directory contains two files: . and ..  . for the name of current directory
+.. is the name of parent directory
+
+cd . --> current directory
+cd .. --> takes the the parent directory
+cd - ---> takes you to the last directory you are in
+
+mkdir --> create directory
+rmdir --> delete empty directory
+rm -rf --> delete directory that is not empty
+
+******************************************************
+BASIC NETWORKING CONCEPTS
+HOW TO SETUP NETWORK COMMUNICATIONS AMONG VIRTUAL MACHINES 
+Generall default IP address is on a realy physical router
+
+/etc/hosts
+This is the file where you establish relationship between hostname and ip address
+eg.
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.0.5.1    master.centos7vt.com
+10.0.5.2    client1.centos7vt.com
+10.0.5.3    client2.centos7vt.com
+10.0.5.1    master
+10.0.5.2    client1
+10.0.5.3    client2
+
+Fully qualified domain name = hostname + domain name
+eg. haiyang.Xu@microsoft.com
+
+Every VM can have one adapter() for public access via SSH, and another adapter for internal subnetwork communications
+
+Command: ip addr list ---> is used to list network interfaces attached to Network
+Loopback device is a non-physical device so that a connection can be made to own computer
+The ip address of Loopback is always 127.0.0.1
+Second interface is enp0s3, is the VM network interface provided by VirtualBox. This is mainly used to SSH to the machine.
+
+Command: shutdown -h now
+Shutdown VM and enable adapter 2 from System-Network-Adapter2
+Select Internal Network --> Name: intnet
+and do the same for Master VM, Client1 VM and Client2 VM
+
+Now checking Network Interface by: ip addr list
+enp0s8 inteface show be shown as part of the results from each VM machine
+
+Command: ip route show
+Command : nslookup google.com
+Command: hostnamectl status ---> check the hostname
+
+To change the hostname:
+/etc/hostname
+eg. change master host to master@centos7vt.com
+
+The change system's default DNS server IP address:
+/etc/resolv.conf
+nameserver 192.168.170.1
+nameserver 8.8.8.8
+
+To change static network config on network router enp0s8
+/etc/sysconfig/network-scripts
+file name: cat ifcfg-enp0s3
+
+Master host config:
+Change: BOOTPROTO=dhcp to BOOTPROTO = none  notes: disable dhcp
+Change: all device name to enp0s8
+Change: ONBOOT to on
+ADD: PREFIX=24 ---> subnetmask
+ADD: IPADDR=10.0.5.1
+
+Client1 host config:
+Change: BOOTPROTO=dhcp to BOOTPROTO = none  notes: disable dhcp
+Change: all device name to enp0s8
+Change: ONBOOT to on
+ADD: PREFIX=24 ---> subnetmask
+ADD: IPADDR=10.0.5.2
+
+Client2 host config:
+Change: BOOTPROTO=dhcp to BOOTPROTO = none  notes: disable dhcp
+Change: all device name to enp0s8
+Change: ONBOOT to on
+ADD: PREFIX=24 ---> subnetmask
+ADD: IPADDR=10.0.5.3
+
+To see the explaination of initial configuration:
+/usr/share/doc/initscripts... (search for ifcfg for details)
+
+To reboot the interface;
+ifdown ifcfg-enp0s8
+ifup ifcfg-enp0s8
+
+Use ip addr list to check if ip on interface 8 has been setup or not
+
+One more thing to do Master is to setup a private DNS server, Always
+start adding new entries at the end of file by using the fully-qualified domain
+name first, then add further short hostnames in /etc/hosts
+
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.0.5.1    master.centos7vt.com
+10.0.5.2    client1.centos7vt.com
+10.0.5.3    client2.centos7vt.com
+10.0.5.1    master
+10.0.5.2    client1
+10.0.5.3    client2
+
+Tu summarise the steps:
+1. login in a reboot
+2. set a fully-qualified domainanme to client1.centos7vt.com
+3. Create a config file for enp0s8 for static network connection
+4. Restart the network interface
+5. Edit /etc/hosts to include the DNS resolution information
+
+*********************************************************************************
