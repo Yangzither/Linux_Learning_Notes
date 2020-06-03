@@ -1,4 +1,4 @@
-****** How To Connect Centos VM to Network******
+****** How To Connect Centos VM to Network**************************************
 
 cd /etc/sysconfig/network-scripts
 
@@ -9,7 +9,7 @@ hit esc to enter command mode
 type :wq to save and exit)
 
 service network restart
-*************************************************
+********************************************************************************
 
 ****** How to Remotly login Centos VM************
 From VM -> System -> Network -> NAT -> Port Forwarding
@@ -27,14 +27,14 @@ Notes: here 2222 is the port Number on your local Host
 
 root is the user name of your select username from VM
 
-***************************************************
+********************************************************************************
 INSTALLATION OF ALL LATEST SOFTWWARE UPDATES
 yum update -y
 
-***************************************************
+********************************************************************************
 
 ip addr list
-***************************************************
+********************************************************************************
 File Globbing
 *
 ? ---> Single Character
@@ -57,14 +57,14 @@ The brackets match specific characters in a single position defined between the 
 When having consecutive permitted characters, you can also use the dash symbol.
 To match everything except a set of characters at a specific position, use the exclamation mark in brackets.
 
-****************************************************
+********************************************************************************
 Quoting commands
 The purpose is to disable shell expansions
 '' Using single quotes is the preferred way when working with shell
 " "Double quotes is the same but with exception of some environment variables such as $PATH
 \ Back slash is the same as single quotes but only affect and only affect the next single character
 
-****************************************************
+********************************************************************************
 Getting help
 1. man man (Manual)
 
@@ -89,7 +89,7 @@ H for text browsing Commands
 n for next matching item
 N for previous matching item
 
-****************************************************
+********************************************************************************
 Working with Linux shell
 man bash ---> for keyboard shortcuts
 history
@@ -100,7 +100,7 @@ Ctl - Z Suspend a program
 bg ---> bring program to background
 fg ---> bring program to foreground
 
-****************************************************
+********************************************************************************
 Standard Streams
 Standard input 0
 Standard output 1
@@ -122,7 +122,7 @@ tar -cv /home/Test | gzip > /home/my_tar_zip_file.tar.zip
 To append content rather then replace the original content, use:
 echo "Hello World" >> /temp/myText.txt
 
-****************************************************
+********************************************************************************
 Centos regular experession manual ??????????
 Regular expression are used to search a pattern in a text or string
 
@@ -143,7 +143,7 @@ egrep or grep -E: extended expression
 
 notes: grep stands for global regular expression print
 
-******************************************************
+********************************************************************************
 Working with sed
 sed should be used with single quotes as well
 unless envorinmetal vairalbes are within sed expression, then double quotes should be Suspend
@@ -154,10 +154,10 @@ note: g is for global change
 
 option -i is for inplace change
 
-******************************************************
+********************************************************************************
 Awk this is to be studied ??????????????????????????
 
-******************************************************
+********************************************************************************
 Install Tree Commands
 yum install Tree -y
 tree -d -L 2 / | less
@@ -172,9 +172,9 @@ mkdir --> create directory
 rmdir --> delete empty directory
 rm -rf --> delete directory that is not empty
 
-******************************************************
+********************************************************************************
 BASIC NETWORKING CONCEPTS
-HOW TO SETUP NETWORK COMMUNICATIONS AMONG VIRTUAL MACHINES 
+HOW TO SETUP NETWORK COMMUNICATIONS AMONG VIRTUAL MACHINES
 Generall default IP address is on a realy physical router
 
 /etc/hosts
@@ -274,4 +274,62 @@ Tu summarise the steps:
 4. Restart the network interface
 5. Edit /etc/hosts to include the DNS resolution information
 
-*********************************************************************************
+********************************************************************************
+HARDLINK AND SOFTLINK
+Hard link:
+Hardlink has the same file inode
+Different name of same file
+Hardlink has the same inode number
+So hardlink cannot be differentiated from the original copy
+If you delete the original copy, it won't have any impact on other copies
+Command: ln originalname hardlin_file_name
+
+
+Soft link:
+softlink has different file inode
+Softlink behave like shortcut to the original file
+It's a pointer to the original file
+If the original file was delted, the softlink will become useless
+Command: ln -s originalname softlink_file_name
+
+
+Compare:
+Think of hardlink like a copy and softlink like a shortcut
+Hardlink can not be created across partitions
+Softlink can be created across partitions
+Hardlink can be applied on files only not on directory
+Softlink can be applied on both files and directory
+
+********************************************************************************
+SERARCH files
+Command: find search_location test_condition action
+note: the default action is print
+
+Search would search directory recursively one by one
+
+eg:
+find /etc -type f -name logrotate.conf   --> f for file
+find /etc -type d -name 'y*'   --> d for directory
+find / -type f -size +4M -name 'l*' --> + for >=  and - for <
+find / -type d -perm 777
+find / -type d -perm chomod 755 {}; -->  {} standards for matched, ; to escape delimits
+note: as chmod is another command action, so ; has to be used to escape command delimits
+find / -type f -name p*conf -or -name 'p*.d'
+find /var -mtime 10 | head --> mtime modified in the last 3 days
+find /var/www/webapp-uploads -mtime +30 -exec rm {};  --> remove anytihing >= 30 days
+find / -type f -size +1M -size -4M -name '1*'
+
+Use of command 'locate'
+"locate" command search for a snapshot of system rahter then live system like 'find' does
+use updatedb to update database
+This command is suppose to be more faster than 'find', but downside is that it's not
+serach for live system
+
+
+
+
+
+By default name expression take normal POSIX 5 globbling
+use -regex for regular expression
+use -iname for case insentitive
+********************************************************************************
