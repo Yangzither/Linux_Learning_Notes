@@ -396,3 +396,47 @@ useradd -u 1009 -g Marketing -G sales, research -m -c 'Jane Doe' Jane
 
 Adding password
 password usr3
+
+********************************************************************************
+File Permissions
+Every file is associated to exactly one username also file owner.
+Every file is associated to exactly one group name also called group owner
+
+File ownership of file can be changed by root user only
+Group ownership can also be changed by file owner
+
+A user can belong to multiple groups but only one primary group. Primary group
+can not be deleted. That is why every new user created has a group with the
+same name as the username.
+
+Every Linux user can be categorized into three groups (Permission Groups)
+The user is the file owner if the user ID matches the ID of the file owner
+whose file we want to access. The user is the group owner if one of the groups he is
+associated with matches the group owner of the file he wants to access. If the user is not the
+file or group owner he falls into the other users category.
+These three groups are also called permission groups
+
+All permission groups have exactly three permission types (Permisison types)
+Read, Write and Execute
+These permission types manage the actual action a user belonging to one of
+these groups can or cannot do with the file.
+
+Changes to permission types or 9-bit permission string can be set or removed by
+the root user only. Read, write, and execute permissions are defined differently
+on files and on directories.
+
+Permission type in a "FILE" contex
+Read: open and Read
+Write: modify or truncate an existing file, but you can not create new or deleting existing files since
+This is a property of parent directory but the file itself.
+X: files to be executed. (this is important for running script on command line)
+
+Note: for a file to be executed, the Read permission needs to be set as well
+
+Permisison type in a "Directory" contex
+X: execution: 1) Allow user group to enter that directory
+              2) Allow user to rename, delete and create nfew files using WRITE flag
+
+Rule of thumb:
+if you need to set some standard permissions on the folder, never miss the execute permission for the
+permission group you want to work with
