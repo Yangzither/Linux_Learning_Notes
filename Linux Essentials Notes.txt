@@ -326,10 +326,73 @@ This command is suppose to be more faster than 'find', but downside is that it's
 serach for live system
 
 
-
-
-
 By default name expression take normal POSIX 5 globbling
 use -regex for regular expression
 use -iname for case insentitive
 ********************************************************************************
+Change your own passwd
+passwd
+
+Create a user under root:
+useradd usr1
+
+Change password
+passwd usr1
+
+Delete user
+userdel -r usr1  --> -r is for delete the user folder and email
+
+To view group configuration changes:
+Command format: grep pattern filenames
+                getent database record
+grep root /etc/group
+getent group root
+
+To add new group by root user:
+groupadd -g 1005 research   ---> -g option is used to assign group id
+grep research /etc/group
+notes: if option g is not provided, then a value higher than the current highest
+Group ID will be selected.
+
+groupadd -g 1005 research
+groupadd research ---> group id is automatically assigned with a value higer than the current
+highest group GID
+groupadd -r research  ---> option -r is for assigning a lower GID value than the lowest
+standard GID
+
+GID under 500 are reserved for system use.
+
+When setting up a new system, it is a good practice to start UIDs no lower than 1000 ensuring there are sufficient UIDs
+available for many system services and giving you the ability to create many GIDs in the reserved range.
+
+
+Modifying a group:
+groupmod -n new_name original_name
+
+Note: files are owned by group ID but not file names
+Files without a group id are called orphanded files
+
+Delete a group
+Primary group of a user can not be deleted
+command: groupdel clerks
+
+********************************************************************************
+Users
+/etc/passwd: for user account information
+/etc/shadow: hashed password information
+
+useradd configuration file:  /etc/default/useradd
+useradd configuration file:  /etc/login.defs
+
+
+Adding primary group to a user:
+useradd -g users jane
+
+Adding supplementary group
+useradd -G sales, research jane
+
+Eg:
+useradd -u 1009 -g Marketing -G sales, research -m -c 'Jane Doe' Jane
+
+Adding password
+password usr3
