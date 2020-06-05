@@ -435,8 +435,15 @@ Note: for a file to be executed, the Read permission needs to be set as well
 
 Permisison type in a "Directory" contex
 X: execution: 1) Allow user group to enter that directory
-              2) Allow user to rename, delete and create nfew files using WRITE flag
+              2) Allow user to rename, delete and create new files using WRITE flag
+eg: cd
 
 Rule of thumb:
 if you need to set some standard permissions on the folder, never miss the execute permission for the
 permission group you want to work with
+
+R: Read: permisison to read the content of directory eg: ls
+
+W: Creat new files or delet existig files in directory.
+It also has to be set if you want to be able to create or delete files in it
+In order to do all this, the X flag has to be set as well.
