@@ -31,6 +31,7 @@ root is the user name of your select username from VM
 INSTALLATION OF ALL LATEST SOFTWWARE UPDATES
 yum update -y
 
+
 ********************************************************************************
 
 ip addr list
