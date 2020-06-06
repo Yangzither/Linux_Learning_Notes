@@ -330,74 +330,91 @@ By default name expression take normal POSIX 5 globbling
 use -regex for regular expression
 use -iname for case insentitive
 ********************************************************************************
-Change your own passwd
-passwd
-
-Create a user under root:
-useradd usr1
-
-Change password
-passwd usr1
-
-Delete user
-userdel -r usr1  --> -r is for delete the user folder and email
-
+GROUPS
+Related file:  /etc/group   /etc/passwd
 To view group configuration changes:
 Command format: grep pattern filenames
                 getent database record
 grep root /etc/group
 getent group root
 
-To add new group by root user:
+command id is useful to view groups as well
+
+***Adding new group by root user:
 groupadd -g 1005 research   ---> -g option is used to assign group id
 grep research /etc/group
 notes: if option g is not provided, then a value higher than the current highest
 Group ID will be selected.
 
-groupadd -g 1005 research
-groupadd research ---> group id is automatically assigned with a value higer than the current
-highest group GID
 groupadd -r research  ---> option -r is for assigning a lower GID value than the lowest
-standard GID
+standard GID (r for reserved)
 
 GID under 500 are reserved for system use.
+When setting up a new system, it is a good practice to start UIDs no lower than
+1000 ensuring there are sufficient UIDs available for many system services and
+giving you the ability to create many GIDs in the reserved range.
 
-When setting up a new system, it is a good practice to start UIDs no lower than 1000 ensuring there are sufficient UIDs
-available for many system services and giving you the ability to create many GIDs in the reserved range.
-
-
-Modifying a group:
+***Change a group name:
 groupmod -n new_name original_name
 
 Note: files are owned by group ID but not file names
-Files without a group id are called orphanded files
+Files without a group id are called Orphanded files
 
-Delete a group
+***Delete a group
 Primary group of a user can not be deleted
 command: groupdel clerks
 
 ********************************************************************************
-Users
+USERS
+Two types of user: physical user and system user
+ID of system user normally under 500 for Redhat
+Every user can belong to multiple groups or group ids
+
 /etc/passwd: for user account information
 /etc/shadow: hashed password information
 
 useradd configuration file:  /etc/default/useradd
 useradd configuration file:  /etc/login.defs
 
-
-Adding primary group to a user:
+***Adding primary group to a user:
 useradd -g users jane
 
-Adding supplementary group
+***Adding supplementary group to a user
 useradd -G sales, research jane
+
+***Adding existing group to a user
+usermod -G
+not: G option will overides existing group names a user has, leaving the Primary
+group as it is.
+Eg:
+usermod -G development paul
+usermod -G research peter
 
 Eg:
 useradd -u 1009 -g Marketing -G sales, research -m -c 'Jane Doe' Jane
 
-Adding password
-password usr3
+***Adding password to user
+password usr3 ---> change password for usr3 as reboot
+password ---> change your own password
+
+Delete user
+userdel -r usr1  --> -r is for delete the user folder and email
 
 ********************************************************************************
+su command
+is used to subsitute user
+su ---> to switch to root user
+su usr1
+su - ---> to create a login shell environment
+su -c ---> execute the command using a different user account without completely
+switching user
+
+eg:
+su peter -c "echo 'new line to file2 by paul'>> file2"
+
+
+********************************************************************************
+
 File Permissions
 Every file is associated to exactly one username also file owner.
 Every file is associated to exactly one group name also called group owner
@@ -442,8 +459,43 @@ Rule of thumb:
 if you need to set some standard permissions on the folder, never miss the execute permission for the
 permission group you want to work with
 
-R: Read: permisison to read the content of directory eg: ls
+R: Read: permisison to read the content of directory
+eg: ls
 
-W: Creat new files or delet existig files in directory.
+W: Creat new files or delete existig files in directory.
 It also has to be set if you want to be able to create or delete files in it
 In order to do all this, the X flag has to be set as well.
+
+Change file permisison
+chown username file
+chown [username]:[groupname] [file]
+
+chgrp groupname file
+
+Change permission recursively use -R option
+ls -lR
+chmod 775 -R ../test_files
+
+Notes:
+Everyfile has a set of permissio status for three category:
+file owner (u), group owner (g), all other user(o)
+
+For each of the above category, there are three possible permissio state:
+Read(4), Write (2), Execute (1)
+
+Every Combination of the three canbe represented by a sum of:
+
+0: Using 0, no read, write, or execute permissions are allowed
+1: It means execute permission only
+2: It means write permission only
+4: It means read permission only
+3: It means the combination of execute and write permissions
+5: It means the combination of execute and read comments only
+6: It means a combination of write permissions and read permissions only
+7: It means full permission or read, write, and execute permissions
+
+********************************************************************************
+VIM
+
+To isntall
+su root -c 'yum install vim -y'
