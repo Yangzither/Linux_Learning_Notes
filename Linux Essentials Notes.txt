@@ -500,3 +500,130 @@ VIM
 
 To isntall
 su root -c 'yum install vim -y'
+
+********************************************************************************
+Essential Commands
+
+cut -d: -f2,3 /temp/file_name  ---> extract column 2 and 3 by delimiter :
+
+cut -d: -f2,3 /temp/file_name --output-delimiter " " /tmp/hardlin_file_name
+note: make " " space the delimiter
+
+basic commands includes:
+cat
+tr
+sort
+Awk
+tee
+tar
+basename
+dirname
+time
+diff
+gzip // gunzip
+tar
+hostname
+uptime
+uname
+
+
+/etc/redhat-release
+/prog/meminfo
+/proc/cupinfo
+free -m
+du
+users
+whoami
+date
+cal
+sleep
+dd  --disk dump
+
+********************************************************************************
+Additional Programs - tools
+yum intall program_name
+note: it must be used a root user
+
+Another very good repository of linux software repository
+not an official CentOS7 sources but still a very reliable One
+
+yum search epel-release
+yum inof epel-release
+yum install epel-release
+
+rsync
+This command checks the difference and only copy the difference over
+A popular  use of this command is,
+rsync -rav
+This will copy files verbosely and recurisively with a common set of parameters
+The command can also be used to copy files between hosts remotely
+--progress flag shows the progress of file transfer
+
+pv
+is the pipe viewer
+
+git
+version control
+
+net-tools
+Display network informaiton
+
+bind-tuils
+query DNS informaton
+
+telnet and nmap
+network troubleshooting
+
+nc or ncat
+network
+eg: nc -l -p 9999 < /etc/rehat-release
+nc 192.168.1.200 9999 > /tmp/redhat-release
+
+
+wget
+download files from internet
+
+links
+commnad line web broswer
+
+htop, iotop, iftop
+live veiw of system
+
+dd  command
+
+********************************************************************************
+//net-tools
+netstat
+route
+bind-utils
+
+//nmap  ---> scans computer networks and collects informations of hosts
+eg nmap ipaddress
+
+//links  ---> web broswer
+links https://duckduckgo.com
+
+
+//iotop
+input and output view
+
+//iftop
+network bandwidth usage and monitor
+
+//htop
+check process running on system
+
+//lsof
+programms accessing files at the moment
+
+//screen
+A quick way to not to save your work and leave office,
+you can come back re-logon to server and retake the screen
+
+Command:
+screen
+work and work here
+logout
+screen -r 23445.pts-l-localhost
+
+********************************************************************************
