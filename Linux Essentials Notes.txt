@@ -627,3 +627,45 @@ logout
 screen -r 23445.pts-l-localhost
 
 ********************************************************************************
+Processes
+One single program can consist of multiple processes, and the process can
+start other processes
+
+To check the process:
+ps
+less | ps -ev
+
+Commands
+pstree
+psmisc ---> to install this package
+
+Dynamic review of the Processes
+top
+htop ---> a comprhensive of top
+
+********************************************************************************
+Cloning
+Normally, the parent
+process, in our example the Bash shell process, waits until the child process has been
+finished.
+
+bg: background
+fg: foreground
+jobs: print out current jobs running in the background in terminal
+kill: kill %1 ---> to kill process
+
+To put a process to background
+Ctrl + Z
+bf
+jobs ---> to check the current running process
+
+********************************************************************************
+Signals
+Child process -- terminated by Ctl + C or Suspend by Ctl + Z
+This will trigger a signal being send to the Parent process
+and this signal will wake the parent process
+
+Kill command can also be used to send signals to running processes
+
+kill -l ---> to see different options
+option 9 signal 9 of SIGKILL is used to kill process
