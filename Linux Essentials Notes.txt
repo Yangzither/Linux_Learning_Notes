@@ -669,3 +669,33 @@ Kill command can also be used to send signals to running processes
 
 kill -l ---> to see different options
 option 9 signal 9 of SIGKILL is used to kill process
+
+Kill %JOBID  ---> kill by job ID
+kill -9 processID ---> kill the process ID
+
+A job ID is much shorter than the process ID
+
+Killing by processs ID is often used to kill  malfunctioning system processes
+
+A job can consist multiple processes
+
+********************************************************************************
+hang-up
+
+In centos, if you put as process at bg, when you logout of the system,
+it will still be running at background. Such as ssh session.
+
+command & ???????? what is the use of command and a &???
+
+********************************************************************************
+Working with Bash shell variables
+Use shell variables as a container for dynamic variables
+
+MY_NEW_VALUE=$MY_VALUE
+
+Difference between a shell variable and an environment variable
+
+Environment variables are variables that are available system-wide and are inherited by all spawned child processes and shells.
+Shell variables are variables that apply only to the current shell instance. Each shell such as zsh and bash, has its own set of internal shell variables.
+
+Shell variables will disapper once your close your terminal
