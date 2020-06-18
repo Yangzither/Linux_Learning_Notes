@@ -699,3 +699,8 @@ Environment variables are variables that are available system-wide and are inher
 Shell variables are variables that apply only to the current shell instance. Each shell such as zsh and bash, has its own set of internal shell variables.
 
 Shell variables will disapper once your close your terminal
+
+********************************************************************************
+Network Commands
+ip  ---> man ip to check more options
+netstat ---> man netstat to check more options
